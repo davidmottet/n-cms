@@ -1,0 +1,31 @@
+{
+  "name": "n-cms",
+  "version": "0.0.1",
+  "description": "Trying to do a cms with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidmottet/n-cms.git"
+  },
+  "keywords": [
+    "node",
+    "cms"
+  ],
+  "author": "David MOTTET",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidmottet/n-cms/issues"
+  },
+  "homepage": "https://github.com/davidmottet/n-cms#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "https": "^1.0.0"
+  }
+}
