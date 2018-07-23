@@ -10,12 +10,12 @@ const exSync = fs.existsSync;
 const reSync = fs.readFileSync;
 
 const log = env.MODE == 'dev' ? console.log : ()=>{};
+const info = env.LOG == 'active' ? console.info : ()=>{};
 
 const PORT_HTTP = env.PORT_HTTP || 3000;
 const PORT_HTTPS = env.PORT_HTTPS || 3030;
 const PATH_KEY = env.PATH_KEY || './keys/agent-key.pem';
 const PATH_CERT = env.PATH_CERT || './keys/agent-cert.cert';
-
 
 const options = {
 	key: exSync(PATH_KEY) ? reSync(PATH_KEY) : null,
@@ -26,14 +26,14 @@ const server = http.createServer((_req, _res) => {
 	_res.writeHead(200, {"Content-Type": "text/html"});
 	_res.write('Hello World!');
 	_res.end();
-	log(`${_req.method}: ${_req.url} ${_res.statusCode}`);
+	info(`${_req.method}: ${_req.url} ${_res.statusCode}`);
 });
 
 const serverSecure = https.createServer(options, (_req, _res) => {
 	_res.writeHead(200, {"Content-Type": "text/html"});
 	_res.write('Hello secure World!');
 	_res.end();
-	log(`${_req.method}: ${_req.url} ${_res.statusCode}`);
+	info(`${_req.method}: ${_req.url} ${_res.statusCode}`);
 });
 
 server.listen(PORT_HTTP);
