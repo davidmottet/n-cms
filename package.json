@@ -23,9 +23,6 @@
   },
   "homepage": "https://github.com/davidmottet/n-cms#readme",
   "dependencies": {
-    "dotenv": "^6.0.0",
-    "fs": "0.0.1-security",
-    "http": "0.0.0",
-    "https": "^1.0.0"
+    "dotenv": "^6.0.0"
   }
 }
