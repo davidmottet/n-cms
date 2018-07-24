@@ -3,6 +3,8 @@ const https = require('https');
 const http = require('http');
 const fs = require('fs');
 
+const router = require('./router');
+
 dotenv.load();
 const env = process.env;
 
@@ -23,6 +25,7 @@ const options = {
 };
 
 const server = http.createServer((_req, _res) => {
+	router(_req, _res);
 	_res.writeHead(200, {"Content-Type": "text/html"});
 	_res.write('Hello World!');
 	_res.end();
@@ -30,6 +33,7 @@ const server = http.createServer((_req, _res) => {
 });
 
 const serverSecure = https.createServer(options, (_req, _res) => {
+	router(_req, _res);
 	_res.writeHead(200, {"Content-Type": "text/html"});
 	_res.write('Hello secure World!');
 	_res.end();
