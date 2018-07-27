@@ -26,17 +26,11 @@ const options = {
 
 const server = http.createServer((_req, _res) => {
 	router(_req, _res);
-	_res.writeHead(200, {"Content-Type": "text/html"});
-	_res.write('Hello World!');
-	_res.end();
 	info(`${_req.method}: ${_req.url} ${_res.statusCode}`);
 });
 
 const serverSecure = https.createServer(options, (_req, _res) => {
 	router(_req, _res);
-	_res.writeHead(200, {"Content-Type": "text/html"});
-	_res.write('Hello secure World!');
-	_res.end();
 	info(`${_req.method}: ${_req.url} ${_res.statusCode}`);
 });
 
